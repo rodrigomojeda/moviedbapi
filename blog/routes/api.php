@@ -24,11 +24,6 @@ Route::post('register', 'API\UserController@register')->name('api.register');
 
 Route::group(['middleware' => 'auth:api'], function() {
     Route::post('details', 'API\UserController@details');
-    Route::post('automation','API\AutomationController@index');
-    Route::post('automation/create','API\AutomationController@store');
-    Route::post('automation/show/{id}','API\AutomationController@show');
-    Route::post('automation/update/{id}','API\AutomationController@update');
-    Route::post('automation/destroy','API\AutomationController@destroy');
-    Route::post('automation/schedule','API\AutomationController@schedule');
-    Route::post('automation/run/command','API\AutomationController@run');
+    Route::post('movies','API\MoviedbController@get');
+    Route::post('movies/create','API\MoviedbController@create');
 });
