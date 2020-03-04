@@ -25,7 +25,7 @@ class FavoriteController extends Controller
             $token = new \Tmdb\ApiToken('f200ea93d28d03201a0e1caee1ebd3e6');
             $client = new \Tmdb\Client($token);
             $movie = $client->getMoviesApi()->getMovie($id);
-            if($movie){
+            if ($movie) {
                 $favorite = new Favorite();
                 $favorite->user_id = Auth::user()->id;
                 $favorite->movie_id = $id;
@@ -50,8 +50,25 @@ class FavoriteController extends Controller
 
     public function destroy(Request $request)
     {
-        return "New bookmark stored";
-    }
 
-    //
+        try {
+
+            $validator = Validator::make($request->all(), [
+                'id' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json(['error' => $validator->errors()], 401);
+            }
+            $id = $request->get('id');
+            $movie = Favorite::where(['user_id' => Auth::user()->id, 'movie_id' => $id])->delete();
+            if ($movie) {
+                return response()->json(['success' => 'Movie removed from favorites'], 200);
+            } else {
+                return response()->json(['error' => 'Movie not found in favorites'], 404);
+            }
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
 }

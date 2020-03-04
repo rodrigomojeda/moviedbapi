@@ -28,4 +28,5 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('movies/search','API\MoviedbController@search');
     Route::post('favorites/add','API\FavoriteController@store');
     Route::post('favorites/get','API\FavoriteController@get');
+    Route::post('favorites/remove','API\FavoriteController@destroy');
 });
