@@ -1,2 +1,0 @@
-# moviedbapi
-Movies DB API
