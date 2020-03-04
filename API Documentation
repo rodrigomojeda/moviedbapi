@@ -1,0 +1,164 @@
+# moviedbapi
+Movies DB API to interact with IMDB https://es.wikipedia.org/wiki/Internet_Movie_Database
+Available methods.
+- Register: /api/register
+Required parameters: name, email, password, c_password
+example: local.mdbapi.io/api/register?name=rodrigo&email=rodrigo@ojeda.com.ar&password=1234567&c_password=1234567
+Response:
+{
+    "success": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjZkZjI1ZTQ2MzdmMzNhODFkY2U5YjcxOGM3NWFlMjg0OGU5NWY2ZDZhMDM0OTA2NDk3YWQ5NjRjZDM1YWEzODI3YTJmNDlmMGI5NDYxYzgiLCJpYXQiOjE1ODMzMjY1MjEsIm5iZiI6MTU4MzMyNjUyMSwiZXhwIjoxNjE0ODYyNTIxLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.UscKt8aSHzidLflvPg0q8Y71cjyc328SAaQiDaPC0TRs_YZcLd0NSJe8GGTrZ4yCR1_g9MmUoL7qCC4AeqDVIZV7Y4DOkb5iCxVpGbcqWcbnYtcT33NhTfqBcBsYv9vMR6uYOSBTMFRGbT4CnBNYthuhSQ_n0u5XtFoQ_v2FPLlwMJlkKgS5ifgIKhsldhY6e1lTzBxxKebTuyu65TXKRgysYU1PLPCt30pwFCOaug-ez5ISBBPCwU_-LGbpKVbjPmbVVztmbpLNtHNWafoaoACNy8U0SxXj2vZI_zDHgvwBkSBX7fFhpdi3cdt5w50XOsijEQj_s8P-tHSnkF_6aNZf85BJKNuLmUJQxWqDgvNkXLn18ksTu1KesPv_4Oqdm6IQNc5MqAbfb6-qMzgzlJ0ODPkUTzeLSzUnisEThTAlo42GPj9N3XUGqO6E01SFWfjamer7KRCmoAn75dmke5dN-JhMx5vAzdnEbkNOX2L8sxPVhVFrm_Eoy06gBFkxh3h5BAOyBbtL5_n_VQe_4HphA1TVTc0oSfsOrx2XqPWv1ofM7oZ3456sw0OKvnVG8TqaMCHUBfIgVDr1eGojE8yQ46JnNJ3vEGvDzLnYOthTs6KUhEtc5v1ZYQQnkjBKopuV2wDOmcodRWSs_Ca3XQdiSH8tZB_ISKvZsHxM3iM",
+        "name": "rodrigo"
+    }
+}
+
+
+- Login: /api/login
+Required parameters: email, password
+Example: local.mdbapi.io/api/login?email=rodrigo@ojeda.com&password=123456
+Response:
+{
+    "success": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzQ5OWEzZWVlNDEwN2E3MjIyYWJhZjIyNjAyNzM5YmVjNjEyNTkyYzhhOGNjZDkxMWZlYWRhZjIxODY2MDhiOGIxNWUxNDJiODJhY2MxOGEiLCJpYXQiOjE1ODMyODcwOTMsIm5iZiI6MTU4MzI4NzA5MywiZXhwIjoxNjE0ODIzMDkzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.FgokPPAH2A5A57vvqm2VoXwcrMdzPIXhRJJXNT02W01i3XlJvCJpQZ6Yato2K1ul8lHV7ub5vPbH1fsCBloGFMtQxPw_Yv9bI7EFBZOvucvsqhS6B6NCSVK-sXBlYRvvO3H-7U83HvPuuHBLHgoThETsafOqp2_gqs8jY49_gcopE6HTx5Ex9dj3OrrC7gzBlqf5TTEBh6hPThj491xGAMJzNfoxYV7D1kzFuLl6wuKJpDoX6zVSEbyG4ECLagjO9e2aB85S1kUOvEYA0stXlMOuYuJMWL2RSm5WP7gXrUtljyXB8QkyqR5sOxMpe9_U_IZKunvxFatKQh3fd5LCAOppmzrWq5-pXTseGx2Lh2mRYr3gHYlPtUfo53qiQTy0TthGx7lH93cHX5xG6PYrrE0r4uz1_lS2s57F6fTh1FiCakzvTcAjPEqTVWmB_rdhvf2xKO8o7g896ccqpk3hBKJ3cXv5pkANYjepgymgSYVbRN6v90pIdmkL9hz82CW8CCnr_NyP_I-YI7eMczoeuS2mfjEM8k1MhGoISx76g8BKZfZQ4DE9jggJNk-m66LfV66DNcMF7BSwc208XikdAszF1lFKtQuAaRdeptl0NfWZ8GA1TJ3EFmznjjs89z0l80Gt9X3Hp9Qo3cuiWsIaK0OMj2bHKno2Bh-ni1QIWLA"
+    }
+}
+
+-Search: /api/movies/search
+Search a movie by title in IMDB
+Required parameters: query, token
+Note: Bearer token should be provided using the authorization header.
+Example: local.mdbapi.io/api/movies/search?query=My Life Without Me
+Response:
+
+{
+    "page": 1,
+    "total_results": 1,
+    "total_pages": 1,
+    "results": [
+        {
+            "popularity": 10.238,
+            "vote_count": 228,
+            "video": false,
+            "poster_path": "/vVj92VBFUBzjqzLvBiPVVlJDp78.jpg",
+            "id": 20,
+            "adult": false,
+            "backdrop_path": "/caLMOD3ZJ3V7qjlxDXrzlJfBLgD.jpg",
+            "original_language": "en",
+            "original_title": "My Life Without Me",
+            "genre_ids": [
+                18,
+                10749
+            ],
+            "title": "My Life Without Me",
+            "vote_average": 6.1,
+            "overview": "A fatally ill mother with only two months to live creates a list of things she wants to do before she dies without telling her family of her illness.",
+            "release_date": "2003-03-07"
+        }
+    ]
+}
+
+
+-Get: /api/movies/get
+Get a movie from IMDB
+Required parameters: id, token
+Note: Bearer token should be provided using the authorization header.
+Example: local.mdbapi.io/api/movies/get?id=tt0314412
+Response:
+{
+    "adult": false,
+    "backdrop_path": "/caLMOD3ZJ3V7qjlxDXrzlJfBLgD.jpg",
+    "belongs_to_collection": null,
+    "budget": 0,
+    "genres": [
+        {
+            "id": 18,
+            "name": "Drama"
+        },
+        {
+            "id": 10749,
+            "name": "Romance"
+        }
+    ],
+    "homepage": "http://www.clubcultura.com/clubcine/clubcineastas/isabelcoixet/mividasinmi/index.htm",
+    "id": 20,
+    "imdb_id": "tt0314412",
+    "original_language": "en",
+    "original_title": "My Life Without Me",
+    "overview": "A fatally ill mother with only two months to live creates a list of things she wants to do before she dies without telling her family of her illness.",
+    "popularity": 10.238,
+    "poster_path": "/vVj92VBFUBzjqzLvBiPVVlJDp78.jpg",
+    "production_companies": [
+        {
+            "id": 49,
+            "logo_path": null,
+            "name": "El Deseo",
+            "origin_country": "ES"
+        },
+        {
+            "id": 77,
+            "logo_path": null,
+            "name": "Milestone Productions",
+            "origin_country": ""
+        }
+    ],
+    "production_countries": [
+        {
+            "iso_3166_1": "CA",
+            "name": "Canada"
+        },
+        {
+            "iso_3166_1": "ES",
+            "name": "Spain"
+        }
+    ],
+    "release_date": "2003-03-07",
+    "revenue": 9726954,
+    "runtime": 106,
+    "spoken_languages": [
+        {
+            "iso_639_1": "en",
+            "name": "English"
+        }
+    ],
+    "status": "Released",
+    "tagline": "",
+    "title": "My Life Without Me",
+    "video": false,
+    "vote_average": 6.1,
+    "vote_count": 228
+}
+
+- Store in favorites: favorites/add
+Stores movie in the favorites list.
+Required parameters: id, token
+Example: local.mdbapi.io/api/favorites/add?id=20
+Note: Bearer token should be provided using the authorization header.
+Response:
+{"success":"Movie saved to favorites"}
+
+- Get Favorites: /api/favorites/get
+Gets the list of logged user favorites movies.
+Required parameters: token
+Note: Bearer token should be provided using the authorization header.
+example: local.mdbapi.io/api/favorites/get
+Response:
+[
+    {
+        "id": 5,
+        "movie_id": 20,
+        "user_id": 1,
+        "metadata": "{\"adult\":false,\"backdrop_path\":\"\\/caLMOD3ZJ3V7qjlxDXrzlJfBLgD.jpg\",\"belongs_to_collection\":null,\"budget\":0,\"genres\":[{\"id\":18,\"name\":\"Drama\"},{\"id\":10749,\"name\":\"Romance\"}],\"homepage\":\"http:\\/\\/www.clubcultura.com\\/clubcine\\/clubcineastas\\/isabelcoixet\\/mividasinmi\\/index.htm\",\"id\":20,\"imdb_id\":\"tt0314412\",\"original_language\":\"en\",\"original_title\":\"My Life Without Me\",\"overview\":\"A fatally ill mother with only two months to live creates a list of things she wants to do before she dies without telling her family of her illness.\",\"popularity\":10.238,\"poster_path\":\"\\/vVj92VBFUBzjqzLvBiPVVlJDp78.jpg\",\"production_companies\":[{\"id\":49,\"logo_path\":null,\"name\":\"El Deseo\",\"origin_country\":\"ES\"},{\"id\":77,\"logo_path\":null,\"name\":\"Milestone Productions\",\"origin_country\":\"\"}],\"production_countries\":[{\"iso_3166_1\":\"CA\",\"name\":\"Canada\"},{\"iso_3166_1\":\"ES\",\"name\":\"Spain\"}],\"release_date\":\"2003-03-07\",\"revenue\":9726954,\"runtime\":106,\"spoken_languages\":[{\"iso_639_1\":\"en\",\"name\":\"English\"}],\"status\":\"Released\",\"tagline\":\"\",\"title\":\"My Life Without Me\",\"video\":false,\"vote_average\":6.1,\"vote_count\":228}",
+        "created_at": "2020-03-04 13:29:13",
+        "updated_at": "2020-03-04 13:29:13"
+    }
+]
+
+- Remove from favorites: /api/favorites/remove
+Removes a movie from the favorites list
+Required parameters: token, id
+Note: Bearer token should be provided using the authorization header.
+example: local.mdbapi.io/api/favorites/remove?id=20
+Response:
+{
+    "success": "Movie removed from favorites"
+}
