@@ -1,2 +1,15 @@
 # moviedbapi
-Movies DB API
+Movies DB API to interact with IMDB https://es.wikipedia.org/wiki/Internet_Movie_Database
+Available methods.
+- Register: /api/register
+Required parameters: name, email, password, c_password
+example: local.mdbapi.io/api/register?name=rodrigo&email=rodrigo@ojeda.com.ar&password=1234567&c_password=1234567
+Response: 
+{
+    "success": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjZkZjI1ZTQ2MzdmMzNhODFkY2U5YjcxOGM3NWFlMjg0OGU5NWY2ZDZhMDM0OTA2NDk3YWQ5NjRjZDM1YWEzODI3YTJmNDlmMGI5NDYxYzgiLCJpYXQiOjE1ODMzMjY1MjEsIm5iZiI6MTU4MzMyNjUyMSwiZXhwIjoxNjE0ODYyNTIxLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.UscKt8aSHzidLflvPg0q8Y71cjyc328SAaQiDaPC0TRs_YZcLd0NSJe8GGTrZ4yCR1_g9MmUoL7qCC4AeqDVIZV7Y4DOkb5iCxVpGbcqWcbnYtcT33NhTfqBcBsYv9vMR6uYOSBTMFRGbT4CnBNYthuhSQ_n0u5XtFoQ_v2FPLlwMJlkKgS5ifgIKhsldhY6e1lTzBxxKebTuyu65TXKRgysYU1PLPCt30pwFCOaug-ez5ISBBPCwU_-LGbpKVbjPmbVVztmbpLNtHNWafoaoACNy8U0SxXj2vZI_zDHgvwBkSBX7fFhpdi3cdt5w50XOsijEQj_s8P-tHSnkF_6aNZf85BJKNuLmUJQxWqDgvNkXLn18ksTu1KesPv_4Oqdm6IQNc5MqAbfb6-qMzgzlJ0ODPkUTzeLSzUnisEThTAlo42GPj9N3XUGqO6E01SFWfjamer7KRCmoAn75dmke5dN-JhMx5vAzdnEbkNOX2L8sxPVhVFrm_Eoy06gBFkxh3h5BAOyBbtL5_n_VQe_4HphA1TVTc0oSfsOrx2XqPWv1ofM7oZ3456sw0OKvnVG8TqaMCHUBfIgVDr1eGojE8yQ46JnNJ3vEGvDzLnYOthTs6KUhEtc5v1ZYQQnkjBKopuV2wDOmcodRWSs_Ca3XQdiSH8tZB_ISKvZsHxM3iM",
+        "name": "rodrigo"
+    }
+}
+
+
