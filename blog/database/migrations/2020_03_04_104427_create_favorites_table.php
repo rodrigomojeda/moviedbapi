@@ -17,7 +17,7 @@ class CreateFavoritesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('movie_id');
             $table->unsignedBigInteger('user_id');
-            $table->json('metadata');
+            $table->text('metadata');
             $table->timestamps();
         });
         Schema::table('favorites', function ($table) {
