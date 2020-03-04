@@ -25,5 +25,6 @@ Route::post('register', 'API\UserController@register')->name('api.register');
 Route::group(['middleware' => 'auth:api'], function() {
     Route::post('details', 'API\UserController@details');
     Route::post('movies/get','API\MoviedbController@get');
+    Route::post('movies/search','API\MoviedbController@search');
     Route::post('movies/create','API\MoviedbController@create');
 });

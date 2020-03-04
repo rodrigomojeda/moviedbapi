@@ -8,7 +8,7 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 
-class MoviedbController extends Controller
+class FavoriteController extends Controller
 {
     public function get(Request $request)
     {
@@ -28,7 +28,7 @@ class MoviedbController extends Controller
         }
     }
 
-    public function search(Request $request)
+    public function store(Request $request)
     {
         try {
             $validator = Validator::make($request->all(), [
@@ -45,9 +45,15 @@ class MoviedbController extends Controller
             return response()->json(['error' => $e->getMessage()], 404);
         }
     }
-    public function create()
+    public function remove(Request $request)
     {
         return "New bookmark stored";
     }
+
+    public function destroy(Request $request)
+    {
+        return "New bookmark stored";
+    }
+
     //
 }
